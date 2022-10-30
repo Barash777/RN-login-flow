@@ -10,7 +10,9 @@ const Stack = createNativeStackNavigator();
 export const Main = () => {
     return (
         <View style={styles.container}>
-            <Stack.Navigator>
+            <Stack.Navigator
+                // screenOptions={{navigationBarHidden: true}}
+            >
                 <Stack.Screen name="Login" component={LoginScreen}/>
                 <Stack.Screen name="Register" component={RegisterScreen}/>
                 <Stack.Screen name="Forgot" component={ForgotPasswordScreen}/>
