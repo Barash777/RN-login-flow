@@ -20,7 +20,11 @@ export const userSlice = createSlice({
             // return state = {...action.payload}
             state.login = action.payload.login
             state.password = action.payload.password
-        }
+        },
+        /*addChar: (state, action: PayloadAction<InitialStateType>) => {
+            // state.login = state.login + '_T'
+            return action.payload
+        }*/
     },
 })
 
