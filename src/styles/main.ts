@@ -17,7 +17,10 @@ export const styles = StyleSheet.create({
         height: 40,
         marginHorizontal: 25,
         marginVertical: 10,
+        // width: "100%",
+        borderColor: "gray",
         borderWidth: 1,
+        borderRadius: 10,
         padding: 10,
     },
 });
