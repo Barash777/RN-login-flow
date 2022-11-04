@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {Text, TextInput, TouchableOpacity, View} from "react-native";
 import {styles} from "../../styles/main";
+import {useAppNavigation} from "../types";
 
 export const LoginScreen = () => {
+    const navigation = useAppNavigation()
     // const login = useAppSelector(state => state.user.login)
     // const dispatch = useAppDispatch()
 
@@ -32,8 +34,16 @@ export const LoginScreen = () => {
                 onChangeText={setPassword}
             />
             <TouchableOpacity style={styles.button} onPress={onPressHandler}>
-                <Text>Login</Text>
+                <Text>Sign In</Text>
             </TouchableOpacity>
+            <View style={styles.buttonsInRow}>
+                <TouchableOpacity style={[styles.button, {flex: 1}]} onPress={() => navigation.navigate('Register')}>
+                    <Text>Register</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.button, {flex: 1}]} onPress={() => navigation.navigate('Forgot')}>
+                    <Text>Forgot password</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };

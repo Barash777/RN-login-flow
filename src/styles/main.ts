@@ -25,12 +25,21 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
     },
+    buttonsInRow: {
+        // flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        // alignItems: "center",
+        // flexGrow: 1
+        // flexWrap: 'nowrap'
+    },
     button: {
+        // flex: 1,
         backgroundColor: buttonBGColor,
         alignItems: "center",
         padding: 10,
         marginHorizontal: 25,
         marginVertical: 10,
         borderRadius: 10,
-    }
+    },
 });
