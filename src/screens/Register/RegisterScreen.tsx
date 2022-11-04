@@ -38,7 +38,7 @@ export const RegisterScreen = () => {
             </TouchableOpacity>
             <View style={styles.buttonsInRow}>
                 <TouchableOpacity style={[styles.button, styles.navigationButton]}
-                                  onPress={() => navigation.navigate('Login')}>
+                                  onPress={() => navigation.navigate('Login', {})}>
                     <Text>Sign In</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={[styles.button, styles.navigationButton]}

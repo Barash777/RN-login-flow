@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Alert, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useAppNavigation} from "../types";
 import {styles} from "../../styles/main";
 
@@ -11,7 +11,8 @@ export const ForgotPasswordScreen = () => {
     const [login, setLogin] = useState('');
 
     const onPressHandler = () => {
-        // dispatch(addChar())
+        Alert.alert('You are registered user! Just press "Sign In"')
+        navigation.navigate('Login', {login: 'test', password: 'zxc'})
     }
 
     return (
@@ -32,7 +33,7 @@ export const ForgotPasswordScreen = () => {
                     <Text>Register</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={[styles.button, styles.navigationButton]}
-                                  onPress={() => navigation.navigate('Login')}>
+                                  onPress={() => navigation.navigate('Login', {})}>
                     <Text>Sign In</Text>
                 </TouchableOpacity>
             </View>
