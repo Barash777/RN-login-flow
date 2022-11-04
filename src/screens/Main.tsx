@@ -16,10 +16,10 @@ export const Main = () => {
             <Stack.Navigator
                 screenOptions={{headerShown: false}}
             >
+                <Stack.Screen name={"Home"} component={HomeScreen}/>
                 <Stack.Screen name={"Login"} component={LoginScreen}/>
                 <Stack.Screen name={"Register"} component={RegisterScreen}/>
                 <Stack.Screen name={"Forgot"} component={ForgotPasswordScreen}/>
-                <Stack.Screen name={"Home"} component={HomeScreen}/>
             </Stack.Navigator>
         </View>
     );

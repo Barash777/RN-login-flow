@@ -7,8 +7,8 @@ export const styles = StyleSheet.create({
     homeContainer: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'center',
+        // justifyContent: 'center',
     },
     container: {
         flex: 1,

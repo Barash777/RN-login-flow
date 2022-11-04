@@ -1,14 +1,27 @@
 import React from 'react';
-import {Text, View} from "react-native";
+import {View} from "react-native";
 import {styles} from "../../styles/main";
+import {NBottomTabParamList} from "../types";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {NewsScreen} from "./News/NewsScreen";
+import {ProfileScreen} from "./Profile/ProfileScreen";
+import {FriendsScreen} from "./Friends/FriendsScreen";
+import {SettingsScreen} from "./Settings/SettingsScreen";
 // import {useAppNavigation} from "../types";
+
+const Tabs = createBottomTabNavigator<NBottomTabParamList>();
 
 export const HomeScreen = () => {
     // const navigation = useAppNavigation()
 
     return (
-        <View style={styles.homeContainer}>
-            <Text>HOME</Text>
+        <View style={styles.container}>
+            <Tabs.Navigator screenOptions={{tabBarActiveTintColor: 'red', headerShown: false}}>
+                <Tabs.Screen name={'News'} component={NewsScreen}/>
+                <Tabs.Screen name={'Profile'} component={ProfileScreen}/>
+                <Tabs.Screen name={'Friends'} component={FriendsScreen}/>
+                <Tabs.Screen name={'Settings'} component={SettingsScreen}/>
+            </Tabs.Navigator>
         </View>
     );
 };
