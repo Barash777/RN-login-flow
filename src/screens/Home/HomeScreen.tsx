@@ -5,9 +5,9 @@ import {styles} from "../../styles/main";
 
 export const HomeScreen = () => {
     // const navigation = useAppNavigation()
-    
+
     return (
-        <View style={styles.stackScreen}>
+        <View style={styles.homeContainer}>
             <Text>HOME</Text>
         </View>
     );
