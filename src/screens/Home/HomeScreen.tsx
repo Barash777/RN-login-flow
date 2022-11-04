@@ -7,13 +7,10 @@ import {NewsScreen} from "./News/NewsScreen";
 import {ProfileScreen} from "./Profile/ProfileScreen";
 import {FriendsScreen} from "./Friends/FriendsScreen";
 import {SettingsScreen} from "./Settings/SettingsScreen";
-// import {useAppNavigation} from "../types";
 
 const Tabs = createBottomTabNavigator<NBottomTabParamList>();
 
 export const HomeScreen = () => {
-    // const navigation = useAppNavigation()
-
     return (
         <View style={styles.container}>
             <Tabs.Navigator screenOptions={{tabBarActiveTintColor: 'red', headerShown: false}}>
