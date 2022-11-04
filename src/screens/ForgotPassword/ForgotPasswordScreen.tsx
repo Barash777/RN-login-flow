@@ -2,17 +2,26 @@ import React, {useState} from 'react';
 import {Alert, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useAppNavigation} from "../types";
 import {styles} from "../../styles/main";
+import {useAppSelector} from "../../app/hooks";
 
 export const ForgotPasswordScreen = () => {
     const navigation = useAppNavigation()
-    // const login = useAppSelector(state => state.user.login)
-    // const dispatch = useAppDispatch()
+    const usersList = useAppSelector(state => state.user.registeredUsers)
 
     const [login, setLogin] = useState('');
 
     const onPressHandler = () => {
-        Alert.alert('You are registered user! Just press "Sign In"')
-        navigation.navigate('Login', {login: 'test', password: 'zxc'})
+        // there is registered user or not
+        const user = usersList.find(e => e.login === login)
+
+        // check for exist
+        if (user) {
+            Alert.alert('You are registered user! Just press "Sign In"')
+            navigation.navigate('Login', {login: user.login, password: user.password})
+            return
+        }
+
+        Alert.alert('The user with this login is not registered yet!')
     }
 
     return (
