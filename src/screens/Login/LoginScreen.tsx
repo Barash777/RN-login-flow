@@ -2,10 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {Alert, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {styles} from "../../styles/main";
 import {LoginPropsType, useAppNavigation} from "../types";
-import {useAppSelector} from "../../app/hooks";
+import {useAppDispatch, useAppSelector} from "../../app/hooks";
+import {signIn} from "../../app/slices/userSlice";
 
 export const LoginScreen = ({route}: LoginPropsType) => {
     const navigation = useAppNavigation()
+    const dispatch = useAppDispatch()
     const usersList = useAppSelector(state => state.user.registeredUsers)
 
     const [login, setLogin] = useState('');
@@ -25,7 +27,8 @@ export const LoginScreen = ({route}: LoginPropsType) => {
         if (user) {
             if (user.login === login && user.password === password) {
                 Alert.alert('You are successfully logged in!')
-                navigation.navigate('Home')
+                dispatch(signIn({login, password}))
+                navigation.navigate('Home', {screen: 'News'})
                 return
             }
 

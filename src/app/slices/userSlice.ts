@@ -25,11 +25,11 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         register: (state, action: PayloadAction<UserType>) => {
-            // return state = {...action.payload}
-            // state.user.login = action.payload.user.login
-            // state.user.password = action.payload.user.password
             state.registeredUsers.push(action.payload)
         },
+        signIn: (state, action: PayloadAction<UserType>) => {
+            state.user = action.payload
+        }
         /*addChar: (state, action: PayloadAction<InitialStateType>) => {
             // state.login = state.login + '_T'
             return action.payload
@@ -37,7 +37,7 @@ export const userSlice = createSlice({
     },
 })
 
-export const {register} = userSlice.actions
+export const {register, signIn} = userSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.counter.value
