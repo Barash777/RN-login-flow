@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Alert, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {styles} from "../../styles/main";
 import {LoginPropsType, useAppNavigation} from "../types";
+import {useAppSelector} from "../../app/hooks";
 
 export const LoginScreen = ({route}: LoginPropsType) => {
     const navigation = useAppNavigation()
-    // const login = useAppSelector(state => state.user.login)
-    // const dispatch = useAppDispatch()
-    
+    const usersList = useAppSelector(state => state.user.registeredUsers)
+
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
@@ -18,7 +18,22 @@ export const LoginScreen = ({route}: LoginPropsType) => {
 
 
     const onPressHandler = () => {
-        // dispatch(addChar())
+        // there is registered user or not
+        const user = usersList.find(e => e.login === login)
+
+        // check for exist
+        if (user) {
+            if (user.login === login && user.password === password) {
+                Alert.alert('You are successfully logged in!')
+                navigation.navigate('Home')
+                return
+            }
+
+            Alert.alert('Login or password is invalid!')
+            return
+        }
+
+        Alert.alert('The user with this login is not registered yet!')
     }
 
     return (

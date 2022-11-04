@@ -7,7 +7,7 @@ type LoginParamList = {
 }
 
 export type StackParamList = {
-    Home: NavigatorScreenParams<NBottomTabParamList>
+    Home: undefined,//NavigatorScreenParams<NBottomTabParamList>
     Login: LoginParamList
     Register: undefined
     Forgot: undefined

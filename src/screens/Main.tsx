@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {LoginScreen} from "./Login/LoginScreen";
 import {RegisterScreen} from "./Register/RegisterScreen";
 import {ForgotPasswordScreen} from "./ForgotPassword/ForgotPasswordScreen";
+import {HomeScreen} from "./Home/HomeScreen";
 import {styles} from "../styles/main";
 import {StackParamList} from "./types";
 
@@ -18,6 +19,7 @@ export const Main = () => {
                 <Stack.Screen name={"Login"} component={LoginScreen}/>
                 <Stack.Screen name={"Register"} component={RegisterScreen}/>
                 <Stack.Screen name={"Forgot"} component={ForgotPasswordScreen}/>
+                <Stack.Screen name={"Home"} component={HomeScreen}/>
             </Stack.Navigator>
         </View>
     );
