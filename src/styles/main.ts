@@ -1,5 +1,7 @@
 import {StyleSheet} from "react-native";
 
+const buttonBGColor = '#5bacec'
+
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -23,4 +25,12 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
     },
+    button: {
+        backgroundColor: buttonBGColor,
+        alignItems: "center",
+        padding: 10,
+        marginHorizontal: 25,
+        marginVertical: 10,
+        borderRadius: 10,
+    }
 });

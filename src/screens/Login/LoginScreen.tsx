@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Text, TextInput, View} from "react-native";
+import {Text, TextInput, TouchableOpacity, View} from "react-native";
 import {styles} from "../../styles/main";
 
 export const LoginScreen = () => {
@@ -15,7 +15,6 @@ export const LoginScreen = () => {
 
     return (
         <View style={styles.stackScreen}>
-            {/*<Text>login_test: {login}</Text>*/}
             <TextInput
                 style={styles.input}
                 autoCapitalize={'none'}
@@ -32,8 +31,9 @@ export const LoginScreen = () => {
                 value={password}
                 onChangeText={setPassword}
             />
-            {/*<Text>Login screen</Text>*/}
-            {/*<Button title={'add char'} onPress={onPressHandler}/>*/}
+            <TouchableOpacity style={styles.button} onPress={onPressHandler}>
+                <Text>Login</Text>
+            </TouchableOpacity>
         </View>
     );
 };
