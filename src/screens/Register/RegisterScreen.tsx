@@ -1,22 +1,37 @@
 import React, {useState} from 'react';
-import {Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Alert, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {styles} from "../../styles/main";
 import {useAppNavigation} from "../types";
+import {register} from "../../app/slices/userSlice";
+import {useAppDispatch, useAppSelector} from "../../app/hooks";
 
 export const RegisterScreen = () => {
     const navigation = useAppNavigation()
-    // const login = useAppSelector(state => state.user.login)
-    // const dispatch = useAppDispatch()
+    const usersList = useAppSelector(state => state.user.registeredUsers)
+    const dispatch = useAppDispatch()
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
     const onPressHandler = () => {
-        // dispatch(addChar())
+        // there is registered user or not
+        const exist = usersList.some(e => e.login === login)
+
+        // check for exist
+        if (exist) {
+            Alert.alert('The user with this login is already exist!')
+            return
+        }
+
+        // register user
+        dispatch(register({login, password}))
+        Alert.alert('You are successfully registered!')
+        navigation.navigate('Login', {login, password})
     }
 
     return (
         <View style={styles.stackScreen}>
+            {/*<Text>usersCount: {usersList.length}</Text>*/}
             <TextInput
                 style={styles.input}
                 autoCapitalize={'none'}

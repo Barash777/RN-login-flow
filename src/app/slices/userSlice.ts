@@ -1,25 +1,34 @@
 import {createSlice} from '@reduxjs/toolkit'
 import type {PayloadAction} from '@reduxjs/toolkit'
 
-type InitialStateType = {
+type UserType = {
     login: string
     password: string
 }
 
+type InitialStateType = {
+    user: UserType
+    registeredUsers: UserType[]
+}
+
 // Define the initial state using that type
 const initialState: InitialStateType = {
-    login: '',
-    password: '',
+    user: {
+        login: '',
+        password: ''
+    },
+    registeredUsers: []
 }
 
 export const userSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-        register: (state, action: PayloadAction<InitialStateType>) => {
+        register: (state, action: PayloadAction<UserType>) => {
             // return state = {...action.payload}
-            state.login = action.payload.login
-            state.password = action.payload.password
+            // state.user.login = action.payload.user.login
+            // state.user.password = action.payload.user.password
+            state.registeredUsers.push(action.payload)
         },
         /*addChar: (state, action: PayloadAction<InitialStateType>) => {
             // state.login = state.login + '_T'
