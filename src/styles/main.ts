@@ -1,6 +1,7 @@
 import {StyleSheet} from "react-native";
 
 const buttonBGColor = '#5bacec'
+const navigationButtonBGColor = '#f69953'
 
 export const styles = StyleSheet.create({
     container: {
@@ -42,4 +43,8 @@ export const styles = StyleSheet.create({
         marginVertical: 10,
         borderRadius: 10,
     },
+    navigationButton: {
+        flex: 1,
+        backgroundColor: navigationButtonBGColor,
+    }
 });

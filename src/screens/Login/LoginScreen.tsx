@@ -37,10 +37,12 @@ export const LoginScreen = () => {
                 <Text>Sign In</Text>
             </TouchableOpacity>
             <View style={styles.buttonsInRow}>
-                <TouchableOpacity style={[styles.button, {flex: 1}]} onPress={() => navigation.navigate('Register')}>
+                <TouchableOpacity style={[styles.button, styles.navigationButton]}
+                                  onPress={() => navigation.navigate('Register')}>
                     <Text>Register</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.button, {flex: 1}]} onPress={() => navigation.navigate('Forgot')}>
+                <TouchableOpacity style={[styles.button, styles.navigationButton]}
+                                  onPress={() => navigation.navigate('Forgot')}>
                     <Text>Forgot password</Text>
                 </TouchableOpacity>
             </View>
